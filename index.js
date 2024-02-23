@@ -5,3 +5,22 @@ let countyData;
 let educationData;
 
 let canvas = d3.select('#canvas');
+
+// Fetch JSON Data
+d3.json(countyURL).then((data, error) => {
+	if (error) {
+		console.log(error);
+	} else {
+		countyData = data;
+		console.log(countyData);
+
+		d3.json(educationURL).then((data, error) => {
+			if (error) {
+				console.log(error);
+			} else {
+				educationData = data;
+				console.log(educationData);
+			}
+		});
+	}
+});
