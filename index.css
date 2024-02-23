@@ -1,6 +1,7 @@
 html,
 body {
 	height: 100%;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body {
@@ -8,6 +9,12 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+}
+
+h1,
+p {
+	margin: 0;
+	padding-bottom: 1rem;
 }
 
 svg {
