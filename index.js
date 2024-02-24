@@ -51,6 +51,17 @@ let drawMap = () => {
 			} else {
 				return '#6B0400';
 			}
+		})
+		.attr('data-fips', (countyDataItem) => {
+			return countyDataItem.id;
+		})
+		.attr('data-education', (countyDataItem) => {
+			let id = countyDataItem.id;
+			let county = educationData.find((item) => {
+				return item.fips === id;
+			});
+			let percentege = county.bachelorsOrHigher;
+			return percentege;
 		});
 };
 
