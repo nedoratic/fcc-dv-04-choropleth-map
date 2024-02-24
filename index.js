@@ -6,6 +6,8 @@ let educationData;
 
 let canvas = d3.select('#canvas');
 
+const tooltip = d3.select('#tooltip');
+
 let drawMap = () => {
 	canvas
 		.selectAll('path')
@@ -62,6 +64,22 @@ let drawMap = () => {
 			});
 			let percentege = county.bachelorsOrHigher;
 			return percentege;
+		})
+		.on('mouseover', (event, d) => {
+			const county = educationData.find((item) => item.fips === d.id);
+			const percentege = county.bachelorsOrHigher;
+			tooltip
+				.style('display', 'block')
+				.style('left', event.pageX + 10 + 'px')
+				.style('top', event.pageY + 10 + 'px')
+				.attr('data-education', percentege)
+				.html(`County: ${county.area_name}<br>State: ${county.state}<br>Education: ${percentege}%`);
+		})
+		.on('mousemove', (event) => {
+			tooltip.style('left', event.pageX + 10 + 'px').style('top', event.pageY + 10 + 'px');
+		})
+		.on('mouseout', () => {
+			tooltip.style('display', 'none');
 		});
 };
 
