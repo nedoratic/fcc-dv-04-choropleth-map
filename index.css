@@ -1,6 +1,5 @@
 html,
 body {
-	height: 100%;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -20,4 +19,17 @@ p {
 #canvas {
 	min-width: 1000px;
 	min-height: 600px;
+}
+
+a {
+	text-decoration: none;
+	font-weight: bold;
+	cursor: pointer;
+	color: #d33324;
+}
+
+a:hover,
+a:focus {
+	text-decoration: underline;
+	color: #a00901;
 }
