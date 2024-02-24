@@ -6,6 +6,10 @@ let educationData;
 
 let canvas = d3.select('#canvas');
 
+let drawMap = () => {
+	canvas.selectAll('path').data(countyData).enter().append('path').attr('d', d3.geoPath()).attr('class', 'county');
+};
+
 // Fetch JSON Data
 d3.json(countyURL).then((data, error) => {
 	if (error) {
@@ -20,6 +24,7 @@ d3.json(countyURL).then((data, error) => {
 			} else {
 				educationData = data;
 				console.log(educationData);
+				drawMap();
 			}
 		});
 	}
